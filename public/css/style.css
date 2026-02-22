@@ -1,15 +1,26 @@
 * { box-sizing: border-box; }
-html, body { height: 100%; }
+:root {
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: "Bauer Bodoni", "Bodoni Moda", Didot, "Didot LT STD", "Hoefler Text", Garamond, serif;
+}
+html, body { 
+  font-family: var(--font-body);
+  height: 100%; }
 body {
   margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   background: #fff;
   color: #111;
 }
+h1, h2, h3, .pageTitle {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
 
 .topbar {
-  background: #62d46d;
-  border-bottom: 2px solid rgba(0,0,0,0.15);
+  background: #151b0f;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
 }
 
 .nav {
@@ -24,17 +35,23 @@ body {
 }
 
 .nav__link {
+  transition: all 0.25s ease;
   text-decoration: none;
-  color: #0b0b0b;
+  color: rgba(255,255,255,0.85);
   font-size: 22px;
   font-weight: 500;
   padding: 10px 12px;
   border-radius: 10px;
 }
-.nav__link:hover { background: rgba(255,255,255,0.35); }
+.nav__link:hover { 
+  color: #a7f299;
+  text-shadow: 0 0 8px rgba(57,255,20,0.8);
+}
 
 .nav__logo { display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; }
-.nav__logo img { height: 46px; width: auto; display: block; }
+.nav__logo img { 
+  height: 125px; width: auto; display: block; 
+}
 
 .canvas {
   min-height: calc(100vh - 92px);
@@ -47,4 +64,83 @@ body {
   padding: 28px;
   font-size: 40px;
   font-weight: 600;
+}
+.forestBanner {
+  position: relative;
+  min-height: 420px;
+  background-image: url("../images/PNWForestBorder.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.forestBanner__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+
+  text-align: center;
+  padding: 40px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.4),
+    rgba(0,0,0,0.6)
+  );
+}
+
+.forestBanner__title {
+  font-size: 56px;
+  color: white;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.forestBanner__sub {
+  font-size: 22px;
+  color: rgba(255,255,255,0.85);
+  margin: 14px 0 20px;
+}
+
+.forestBanner__cta {
+  margin-top: 8px;
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 999px;
+  color: white;
+  text-decoration: none;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.4);
+  backdrop-filter: blur(6px);
+}
+
+/* Hero Section Chat help */
+.hero {
+  background: #151b0f;  
+  padding: 90px 0 70px;
+  display: flex;
+  justify-content: center; 
+}
+
+.hero__inner {
+  width: 100%; 
+  max-width: 1200px;
+  padding-left: 80px; 
+}
+
+.hero__brand {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(72px, 8vw, 120px);
+  font-weight: 400;
+  line-height: 0.95;
+  color: white;
+}
+
+.hero__tagline {
+  margin-top: 20px;
+  font-size: 24px;
+  color: rgba(255,255,255,0.75);
 }
