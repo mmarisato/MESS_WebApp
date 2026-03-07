@@ -148,7 +148,19 @@ h1, h2, h3, .pageTitle {
   min-height: calc(100vh - 92px);
 }
 
-.gameIntro,
+.gameIntro{
+  padding: 48px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height: calc(100vh - 92px);
+
+  background-image: url("../images/PNWForestBorder.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .finalScreen {
   padding: 48px 24px;
   display: flex;
@@ -157,7 +169,40 @@ h1, h2, h3, .pageTitle {
   min-height: 70vh;
 }
 
-.gameIntro__card,
+.gameIntro__card{
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255,255,255,0.35);
+  box-shadow: 0 10px 35px rgba(0,0,0,0.35);
+
+  padding: 40px 48px;
+  border-radius: 28px;
+
+  max-width: 520px;
+  text-align: left;
+
+  color: white; 
+}
+.gameIntro__card h1 {
+  text-align: center;
+  font-size: 42px;
+  color: white;
+}
+
+.gameIntro__card p{
+  text-align: center;
+}
+.gameIntro__card li {
+  color: white;
+}
+.gameIntro__card ul {
+  width: fit-content;
+  margin: 24px auto 0;
+  text-align: left;
+}
+
 .levelResult__card,
 .finalCard__content {
   background: rgba(255,255,255,0.85);
@@ -166,17 +211,37 @@ h1, h2, h3, .pageTitle {
 }
 
 .gameButton {
-  background: #69db75;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
+  display: block;
+  margin: 28px auto 0;
+
+  padding: 16px 44px;
+  border-radius: 999px;
+
+  background: rgba(40,40,40,0.35);
+  border: 1px solid rgba(255,255,255,0.45);
+
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
   cursor: pointer;
-  font-weight: 600;
+  transition: all 0.25s ease;
+}
+.gameButton:hover {
+  background: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.65);
+  transform: translateY(-2px);
 }
 
 .gameButton:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+  transform: none;
 }
 
 .gameLevel {
@@ -187,7 +252,17 @@ h1, h2, h3, .pageTitle {
 
 .gameSidebar {
   padding: 24px;
-  background: #d9f4d9;
+  background: #151b0f;
+  color: white; 
+}
+.gameSidebar h2,
+.gameSidebar h3{
+  font-family: var(--font-heading);
+  color: white;
+  letter-spacing: 0.03em;
+}
+.gameSidebar p {
+  font-family: var(--font-body);
 }
 
 .garmentGrid {
@@ -242,6 +317,22 @@ h1, h2, h3, .pageTitle {
   background: rgba(255,255,255,0.8);
   padding: 16px;
   border-radius: 12px;
+}
+.levelTitle {
+  font-family: var(--font-heading);
+  color: white;
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 8px;
+  letter-spacing: 0.03em;
+}
+
+.levelInstructions {
+  font-family: var(--font-body);
+  color: rgba(255,255,255,0.85);
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 24px;
 }
 
 .levelResult,
