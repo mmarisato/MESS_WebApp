@@ -144,3 +144,150 @@ h1, h2, h3, .pageTitle {
   font-size: 24px;
   color: rgba(255,255,255,0.75);
 }
+#gameRoot {
+  min-height: calc(100vh - 92px);
+}
+
+.gameIntro,
+.finalScreen {
+  padding: 48px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.gameIntro__card,
+.levelResult__card,
+.finalCard__content {
+  background: rgba(255,255,255,0.85);
+  padding: 24px;
+  border-radius: 16px;
+}
+
+.gameButton {
+  background: #69db75;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.gameButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.gameLevel {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  min-height: calc(100vh - 92px);
+}
+
+.gameSidebar {
+  padding: 24px;
+  background: #d9f4d9;
+}
+
+.garmentGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.garmentCard {
+  background: white;
+  border: 2px solid transparent;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.garmentCard img {
+  width: 100%;
+  display: block;
+}
+
+.garmentCard.is-selected {
+  border-color: #2f9e44;
+}
+
+.gameStage,
+.levelResult__stage {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  min-height: 600px;
+  padding: 24px;
+}
+
+.mannequinArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.mannequinPlaceholder {
+  width: 180px;
+  height: 380px;
+  background: rgba(255,255,255,0.65);
+  border: 2px dashed rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.selectedSummary {
+  background: rgba(255,255,255,0.8);
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.levelResult,
+.finalScreen {
+  padding: 32px;
+}
+
+.scoreText {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.resultGarments {
+  list-style: none;
+  padding: 0;
+}
+
+.resultGarments li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.resultGarments img {
+  width: 60px;
+  height: auto;
+}
+
+.finalGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 24px auto;
+}
+
+.finalCard {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.finalCard__image {
+  height: 240px;
+  background-size: cover;
+  background-position: center;
+}
