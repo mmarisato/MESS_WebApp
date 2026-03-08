@@ -39,6 +39,28 @@ class Game {
 
     this.renderLevel();
   }
+  renderCroquisLayers(level) {
+    const selectedGarments = this.selectedGarments
+      .map(id => level.garments.find(g => g.id === id))
+      .filter(Boolean);
+  
+    const layerOrder = {
+      bottom: 10,
+      top: 20,
+      jacket: 30
+    };
+  
+    return selectedGarments
+      .sort((a, b) => (layerOrder[a.category] || 0) - (layerOrder[b.category] || 0))
+      .map(garment => `
+        <img
+          class="croquisGarment croquisGarment--${garment.category}"
+          src="${garment.image}"
+          alt="${garment.name}"
+        >
+      `)
+      .join("");
+  }
 
   submitLevel() {
     if (this.selectedGarments.length !== 3) return;
@@ -143,7 +165,11 @@ class Game {
         >
           
         <div class="mannequinArea">
-          <div class="mannequinPlaceholder">Croquis</div>
+        <div class="mannequinPlaceholder">
+         <div class="outfitLayers">
+          ${this.renderCroquisLayers(level)}
+        </div>
+      </div>
             <div class="selectedSummary">
               <h3>Selected</h3>
               <ul>${selectedNamesMarkup || "<li>No garments selected yet</li>"}</ul>
@@ -206,6 +232,28 @@ class Game {
       .querySelector("#nextBtn")
       .addEventListener("click", () => this.nextLevel());
   }
+  renderFinalOutfitLayers(result) {
+    const selectedGarments = result.selected
+      .map(id => result.garments.find(g => g.id === id))
+      .filter(Boolean);
+  
+    const layerOrder = {
+      bottom: 10,
+      top: 20,
+      jacket: 30
+    };
+  
+    return selectedGarments
+      .sort((a, b) => (layerOrder[a.category] || 0) - (layerOrder[b.category] || 0))
+      .map(garment => `
+        <img
+          class="finalOutfitGarment finalOutfitGarment--${garment.category}"
+          src="${garment.image}"
+          alt="${garment.name}"
+        >
+      `)
+      .join("");
+  }
 
   renderFinalScreen() {
     const totalPossible = levels.length * 10;
@@ -215,21 +263,24 @@ class Game {
         const garmentMarkup = result.selected
           .map(id => {
             const garment = result.garments.find(g => g.id === id);
-            return garment
-              ? `<li>${garment.name}</li>`
-              : "";
+            return garment ? `<li>${garment.name}</li>` : "";
           })
           .join("");
 
         return `
-          <article class="finalCard">
-            <div class="finalCard__image" style="background-image: url('${result.background}')"></div>
-            <div class="finalCard__content">
-              <h3>${result.title}</h3>
-              <p>${result.score}/10</p>
-              <ul>${garmentMarkup}</ul>
-            </div>
-          </article>
+        <article class="finalCard">
+        <div class="finalCard__stage" style="background-image: url('${result.background}')">
+          <div class="finalOutfitPreview">
+            ${this.renderFinalOutfitLayers(result)}
+          </div>
+        </div>
+
+        <div class="finalCard__content">
+          <h3>${result.title}</h3>
+          <p>${result.score}/10</p>
+          <ul>${garmentMarkup}</ul>
+        </div>
+      </article>
         `;
       })
       .join("");
