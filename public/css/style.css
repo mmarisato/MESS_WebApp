@@ -746,3 +746,15 @@ h1, h2, h3, .pageTitle {
     max-height: none;
   }
 }
+
+.discover-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.discover-card-link:hover .discover-card {
+  transform: translateY(-4px);
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
