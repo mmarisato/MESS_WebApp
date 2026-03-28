@@ -604,7 +604,11 @@ h1, h2, h3, .pageTitle {
 .discover-transition {
   padding: 72px 40px;
   text-align: center;
-  background: url("../images/Waterfall.jpeg") center center / cover no-repeat;
+  background: url("../images/Waterfall.jpeg") center 54% / cover no-repeat;
+  min-height: 320px;
+  display: flex;             
+  align-items: center;   
+  justify-content: center;
 }
 
 .discover-transition p {
