@@ -2,14 +2,17 @@
     <div class="footer__inner">
       <div class="footer__left">
         <h3 class="footer__title">MESS</h3>
-        <p class="footer__tagline">Get messy without looking a mess</p>
+        <p class="footer__tagline">Contact Us</p>
       </div>
   
       <div class="footer__right">
         <form action="/api/contact" method="post" class="footer-form">
-          <input type="text" name="name" placeholder="Name" required />
-          <input type="email" name="email" placeholder="Email" required />
-          <input type="text" name="subject" placeholder="Subject" required />
+            <div class="footer-input-row">
+                <input type="text" name="name" placeholder="Name" required />
+                <input type="email" name="email" placeholder="Email" required />
+                 <input type="text" name="subject" placeholder="Subject" required />
+            </div>
+            
           <textarea name="message" placeholder="Message" rows="3" required></textarea>
           <button type="submit" class="footer-button">Send</button>
         </form>

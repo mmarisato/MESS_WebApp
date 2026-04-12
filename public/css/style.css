@@ -914,17 +914,102 @@ h1, h2, h3, .pageTitle {
   }
 }
 
+.site-footer {
+  background: #151b0f;
+  color: white;
+  padding: 60px 32px;
+}
+
+.footer__inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.footer__left {
+  padding-left: 24px;
+}
+
+.footer__title {
+  margin: 0 0 18px;
+  font-family: var(--font-heading);
+  font-size: 48px;
+  color: white;
+}
+
+.footer__tagline {
+  margin: 0;
+  color: rgba(255,255,255,0.85);
+  font-size: 18px;
+}
+
+.footer__right {
+  width: 100%;
+}
+
+.footer-form {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  grid-template-areas:
+    "inputs message"
+    ".      button";
+  column-gap: 28px;
+  row-gap: 18px;
+  align-items: start;
+}
+
+.footer-form input,
 .footer-form textarea {
-  padding: 10px 12px;
-  border-radius: 8px;
   border: none;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 16px;
+}
+
+.footer-form input {
+  width: 100%;
+  background: white;
+  color: #111;
+}
+
+.footer-form textarea {
+  grid-area: message;
+  min-height: 110px;
+  resize: vertical;
   background: rgba(255,255,255,0.08);
   color: white;
 }
 
+.footer-form textarea::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+.footer-form input::placeholder {
+  color: rgba(0,0,0,0.55);
+}
+
+.footer-form input[name="name"],
+.footer-form input[name="email"],
+.footer-form input[name="subject"] {
+  grid-area: auto;
+}
+
+.footer-form .footer-input-row {
+  grid-area: inputs;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  align-self: end;
+}
+
 .footer-button {
-  margin-top: 8px;
-  padding: 10px 20px;
+  grid-area: button;
+  justify-self: start;
+  margin-top: 4px;
+  padding: 12px 24px;
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,0.4);
   background: transparent;
@@ -934,4 +1019,27 @@ h1, h2, h3, .pageTitle {
 
 .footer-button:hover {
   background: rgba(255,255,255,0.1);
+}
+
+@media (max-width: 900px) {
+  .footer__inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer__left {
+    padding-left: 0;
+  }
+
+  .footer-form {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "message"
+      "button"
+      "inputs";
+  }
+
+  .footer-form .footer-input-row {
+    grid-template-columns: 1fr;
+  }
 }
