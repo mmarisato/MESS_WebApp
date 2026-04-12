@@ -9,6 +9,7 @@
     <title>Discover • MESS</title>
     <link rel="stylesheet" href="./css/style.css" />
   </head>
+
   <body>
     <header class="topbar">
       <nav class="nav">
@@ -179,5 +180,14 @@
         </a>
       </section>
     </main>
+    <div id="footer-placeholder"></div>
+
+    <script>
+    fetch('/footer.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+      });
+  </script>
   </body>
 </html>
