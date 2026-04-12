@@ -255,9 +255,17 @@ class Game {
       .join("");
   }
 
+  getFinalRankLabel(score) {
+    if (score >= 30) return "Backcountry Ready";
+    if (score >= 20) return "Gorpcore God";
+    if (score >= 10) return "Survival Unlikely";
+    return "Nature's Victim";
+  }
+
   renderFinalScreen() {
     const totalPossible = levels.length * 10;
-
+    const finalRank = this.getFinalRankLabel(gameState.totalScore);
+  
     const cardsMarkup = gameState.levelResults
       .map(result => {
         const garmentMarkup = result.selected
@@ -266,38 +274,42 @@ class Game {
             return garment ? `<li>${garment.name}</li>` : "";
           })
           .join("");
-
+  
         return `
         <article class="finalCard">
-        <div class="finalCard__stage" style="background-image: url('${result.background}')">
-          <div class="finalOutfitPreview">
-            ${this.renderFinalOutfitLayers(result)}
+          <div class="finalCard__stage" style="background-image: url('${result.background}')">
+            <div class="finalOutfitPreview">
+              ${this.renderFinalOutfitLayers(result)}
+            </div>
           </div>
-        </div>
-
-        <div class="finalCard__content">
-          <h3>${result.title}</h3>
-          <p>${result.score}/10</p>
-          <ul>${garmentMarkup}</ul>
-        </div>
-      </article>
+  
+          <div class="finalCard__content">
+            <h3>${result.title}</h3>
+            <p>${result.score}/10</p>
+            <ul>${garmentMarkup}</ul>
+          </div>
+        </article>
         `;
       })
       .join("");
-
+  
     this.root.innerHTML = `
       <section class="finalScreen">
-        <h1>${gameState.totalScore}/${totalPossible}</h1>
-        <p>Back Country Ready</p>
-
+        <div class="finalSummary">
+          <div class="finalScoreBlock">
+            <h1>${gameState.totalScore}/${totalPossible}</h1>
+            <p class="finalRank">${finalRank}</p>
+          </div>
+  
+          <button class="gameButton" id="restartBtn">Play Again</button>
+        </div>
+  
         <div class="finalGrid">
           ${cardsMarkup}
         </div>
-
-        <button class="gameButton" id="restartBtn">Play Again</button>
       </section>
     `;
-
+  
     document
       .querySelector("#restartBtn")
       .addEventListener("click", () => this.restartGame());
