@@ -837,20 +837,19 @@ h1, h2, h3, .pageTitle {
 }
 
 .products-banner {
+  position: relative;
   min-height: 620px;
   background:
     linear-gradient(to bottom, rgba(0,0,0,0.08), rgba(0,0,0,0.18)),
-    url("../images/SoloForest.jpg")  center 30% / cover no-repeat;
-  display: flex;
-  align-items: end;
+    url("../images/BigGroup.png")  center 50% / cover no-repeat;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .products-banner__inner {
-  width: 100%;
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 32px 36px;
+  position: absolute;
+  left: 4%;
+  top: 41%;
+  padding: 0;
 }
 
 .products-banner__title {
@@ -865,35 +864,103 @@ h1, h2, h3, .pageTitle {
 
 .products-section {
   background: #151b0f;
-  padding: 48px 32px 72px;
+  padding: 70px 32px 90px;
 }
 
 .products-grid {
-  max-width: 1300px;
+  max-width: 900px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px 20px;
 }
 
 .product-card {
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: 18px;
-  overflow: hidden;
+  position: relative;
+  background: #fbfaf5;
+  border-radius: 2px;
+  padding: 14px 14px 48px;
   aspect-ratio: 3 / 4;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+  overflow: visible;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+.product-img {
+  position: absolute;
+  inset: 14px 14px 48px;
+  width: calc(100% - 28px);
+  height: calc(100% - 62px);
+  object-fit: contain;
+  display: block;
+  transition: opacity 0.25s ease;
+}
 
+.product-img--png {
+  opacity: 1;
+  z-index: 1;
+}
+
+.product-img--editorial {
+  position: absolute;
+  inset: 14px 14px 44px;
+  width: calc(100% - 28px);
+  height: calc(100% - 58px);
+  opacity: 0;
+  z-index: 2;
+  object-fit: cover;
+}
+
+.product-card:hover .product-img--png {
+  opacity: 1;
+}
+
+.product-card:hover .product-img--editorial {
+  opacity: 1;
+}
+
+.product-card::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 72px;
+  height: 22px;
+  transform: translateX(-50%) rotate(-2deg);
+  background: rgba(232, 224, 198, 0.8);
+  opacity: 0.9;
+  z-index: 5;
+}
 .product-card img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
+  /*background: #e9e9e4;*/
 }
 
-/* Optional hover effect */
+.product-card::after {
+  content: attr(data-size);
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  font-size: 0.72rem;
+  color: #111;
+}
+
+.product-card:nth-child(2n) {
+  transform: rotate(1deg);
+}
+
+.product-card:nth-child(3n) {
+  transform: rotate(-1.2deg);
+}
+
+.product-card:nth-child(5n) {
+  transform: rotate(0.6deg);
+}
+
 .product-card:hover {
   transform: translateY(-4px);
   transition: transform 0.2s ease;
