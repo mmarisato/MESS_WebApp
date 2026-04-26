@@ -233,7 +233,7 @@ h1, h2, h3, .pageTitle {
 .levelResult__card,
 .finalCard__content {
   background: rgba(255,255,255,0.85);
-  padding: 24px;
+  padding: 16px 18px;
   border-radius: 16px;
 }
 
@@ -340,6 +340,10 @@ h1, h2, h3, .pageTitle {
   min-height: 0;
   padding: 24px 24px 110px; 
   overflow: hidden;
+}
+
+.gameStage--alpine .croquisGarment--jacket {
+  top: 80px;
 }
 
 .mannequinArea {
@@ -493,9 +497,25 @@ h1, h2, h3, .pageTitle {
   overflow: hidden;
 }
 
+.finalCard__content h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+
+.finalCard__content p {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+
+.finalCard__content ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13px;
+}
+
 .finalCard__stage {
   position: relative;
-  height: 260px;
+  height: 340px;
   background-size: cover;
   background-position: center;
 }
@@ -514,20 +534,24 @@ h1, h2, h3, .pageTitle {
 }
 
 .finalOutfitGarment--top {
-  top: 35px;
-  width: 42%;
+  top: 45px;
+  width: 30%;
   z-index: 20;
 }
 
 .finalOutfitGarment--jacket {
-  top: 30px;
-  width: 46%;
+  top: 35px;
+  width: 42%;
   z-index: 30;
 }
 
+.finalCard:nth-child(4) .finalOutfitGarment--jacket {
+  top: 25px; 
+}
+
 .finalOutfitGarment--bottom {
-  bottom: 18px;
-  width: 48%;
+  bottom: 10px;
+  width: 40%;
   z-index: 10;
 }
 
@@ -886,6 +910,7 @@ h1, h2, h3, .pageTitle {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 .product-img {
   position: absolute;
@@ -1109,4 +1134,44 @@ h1, h2, h3, .pageTitle {
   .footer-form .footer-input-row {
     grid-template-columns: 1fr;
   }
+}
+
+.product-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.product-modal.is-open {
+  display: flex;
+}
+
+.product-modal__content {
+  background: #fbfaf5;
+  max-width: 900px;
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  padding: 32px;
+  position: relative;
+}
+
+.product-modal__content img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.product-modal__close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }

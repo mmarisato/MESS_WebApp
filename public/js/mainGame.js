@@ -160,7 +160,7 @@ class Game {
         </aside>
 
         <section
-        class="gameStage"
+        class="gameStage ${level.id === 'alpine' ? 'gameStage--alpine' : ''}"
         style="background-image: url('${level.background}')"
         >
           
