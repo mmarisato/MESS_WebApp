@@ -734,8 +734,12 @@ h1, h2, h3, .pageTitle {
 .about-hero {
   
   height: clamp(440px, 55vw, 650px);
-  background: url("../images/wildflower.jpg") center 65% / cover no-repeat;
+
+  background-image: url("../images/wildflower.jpg");
+  background-size: cover;
   background-position: center top;
+  background-repeat: no-repeat;
+
   display: flex;
   align-items: center;
   justify-content: center;
