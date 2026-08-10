@@ -732,7 +732,7 @@ h1, h2, h3, .pageTitle {
   }
 }
 .about-hero {
-  min-height: 440px;
+  height: clamp(440px, 55vw, 650px);
   background: url("../images/wildflower.jpg") center 65% / cover no-repeat;
   display: flex;
   align-items: center;
