@@ -55,7 +55,7 @@ h1, h2, h3, .pageTitle {
 
 .canvas {
   min-height: calc(100vh - 92px);
-  background: #cff6d5;
+  background: #151b0f;
   border: 2px solid rgba(0,0,0,0.15);
 }
 
@@ -235,6 +235,7 @@ h1, h2, h3, .pageTitle {
   background: rgba(255,255,255,0.85);
   padding: 16px 18px;
   border-radius: 16px;
+  color: #111;
 }
 
 .gameButton {
@@ -343,7 +344,7 @@ h1, h2, h3, .pageTitle {
 }
 
 .gameStage--alpine .croquisGarment--jacket {
-  top: 80px;
+  top: 75px;
 }
 
 .mannequinArea {
@@ -458,6 +459,7 @@ h1, h2, h3, .pageTitle {
 .levelResult,
 .finalScreen {
   padding: 32px;
+  color: white;
 }
 
 .scoreText {
@@ -873,7 +875,7 @@ h1, h2, h3, .pageTitle {
   position: absolute;
   left: 4%;
   top: 41%;
-  padding: 0;
+  padding-left: 50px;
 }
 
 .products-banner__title {
