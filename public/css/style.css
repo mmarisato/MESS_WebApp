@@ -737,7 +737,7 @@ h1, h2, h3, .pageTitle {
 
   background-image: url("../images/wildflower.png");
   background-size: cover;
-  background-position: center top;
+  background-position: center center;
   background-repeat: no-repeat;
 
   display: flex;
