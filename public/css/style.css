@@ -735,7 +735,7 @@ h1, h2, h3, .pageTitle {
   
   height: clamp(440px, 55vw, 650px);
 
-  background-image: url("../images/wildflower.jpg");
+  background-image: url("../images/wildflower.png");
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
